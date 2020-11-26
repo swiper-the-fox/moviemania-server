@@ -1,7 +1,19 @@
-const route = require('express').Router()
-const Controller = require('../controllers/controller')
+const router = require('express').Router()
+const movieRouter = require('./movieRoute')
+const UserController = require('../controllers/UserController');
+const FavoriteController = require('../controllers/FavoriteController');
+const authentication = require("../middlewares/authentication");
+const authorization = require("../middlewares/authorization");
 
-route.get('/quotes', Controller.quotesFigure)
 
+router.post('/register', UserController.register);
+router.post('/login', UserController.login);
 
-module.exports = route
+router.use(authentication);
+
+router.use('/movies', movieRouter);
+router.post("/favorites", FavoriteController.addFavMovie);
+router.get("/favorites", FavoriteController.showFavMovie);
+router.delete("/favorites/:id", authorization, FavoriteController.deleteFavMovie);
+
+module.exports = router
