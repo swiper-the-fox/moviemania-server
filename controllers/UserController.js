@@ -63,17 +63,17 @@ class UserController {
           }
       })
       if(isRegistered){
-        let token = signToken({id: isRegistered.id , email: isRegistered.email})
+        let access_token = signToken({id: isRegistered.id , email: isRegistered.email})
         console.log('login');
-        res.status(200).json({token})
+        res.status(200).json({access_token})
       }else{
           console.log('register');
           let newUser = await User.create({
               email: payload.email,
               password: process.env.GOOGLE_PASSWORD
           })
-          let token = signToken({id: newUser.id , email: newUser.email})
-          res.status(200).json({token})
+          let access_token = signToken({id: newUser.id , email: newUser.email})
+          res.status(200).json({access_token})
       }
     } catch (err) {
       next(err)
