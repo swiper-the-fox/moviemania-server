@@ -12,5 +12,7 @@ router.get('/newsapi', MovieController.getNewsapi)
 
 router.get('/:id', MovieController.getOneMovie)
 
+router.get('/quotes', MovieController.quotesFigure)
+
 
 module.exports = router
