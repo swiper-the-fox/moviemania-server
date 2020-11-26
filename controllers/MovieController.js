@@ -1,4 +1,6 @@
 const axios = require('axios')
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('176847dab01b405da394cc1faad17ab7');
 
 class MovieController {
   static getPopularMovie(req, res, next) {
@@ -126,6 +128,17 @@ class MovieController {
       res.status(200).json({ movies: listMovie })
     })
     .catch(err => {
+      next(err)
+    })
+  }
+  static getNewsapi(req,res,next){
+    newsapi.v2.topHeadlines({
+      q: 'movies'
+    })
+    .then(data=>{
+      res.status(200).json(data)
+    })
+    .catch(err=>{
       next(err)
     })
   }
