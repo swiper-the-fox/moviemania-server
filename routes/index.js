@@ -11,7 +11,7 @@ router.post('/login', UserController.login);
 router.post('/loginGoogle', UserController.loginGoogle);
 
 router.use(authentication);
-router.use('/movie', movieRouter);
+router.use('/movies', movieRouter);
 
 router.post("/favorites", FavoriteController.addFavMovie);
 router.get("/favorites", FavoriteController.showFavMovie);
