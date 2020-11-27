@@ -137,6 +137,7 @@ class MovieController {
       q: 'movies'
     })
     .then(data=>{
+      console.log(data)
       res.status(200).json(data)
     })
     .catch(err=>{

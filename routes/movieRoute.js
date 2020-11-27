@@ -10,9 +10,8 @@ router.get('/search/', MovieController.searchMovie)
 
 router.get('/newsapi', MovieController.getNewsapi)
 
-router.get('/:id', MovieController.getOneMovie)
-
 router.get('/quotes', MovieController.quotesFigure)
 
+router.get('/:id', MovieController.getOneMovie)
 
 module.exports = router
