@@ -1,4 +1,6 @@
 const axios = require('axios')
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('176847dab01b405da394cc1faad17ab7');
 
 class MovieController {
   static getPopularMovie(req, res, next) {
@@ -129,6 +131,33 @@ class MovieController {
       next(err)
     })
   }
+
+  static getNewsapi(req,res,next){
+    newsapi.v2.topHeadlines({
+      q: 'movies'
+    })
+    .then(data=>{
+      res.status(200).json(data)
+    })
+    .catch(err=>{
+      console.log('errnewsapi');
+      next(err)
+    })
+  }
+
+
+  static quotesFigure(req, res, next) {
+    axios({
+        url: 'https://ron-swanson-quotes.herokuapp.com/v2/quotes',
+        method: 'GET'
+    })
+    .then(response => {
+        res.status(200).json(response.data)
+    })
+    .catch(err => {
+        next(err)
+    })
+}
 }
 
 

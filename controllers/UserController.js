@@ -39,12 +39,14 @@ class UserController {
           id: user.id,
           email: user.email
         });
+
         res.status(200).json({ access_token });
       }
     } catch (err) {
       next(err);
     }
   }
+
 
   static loginGoogle(req, res, next) {
     // Verify Token
@@ -81,6 +83,7 @@ class UserController {
       next(err);
     });
   }
+
 
 }
 
