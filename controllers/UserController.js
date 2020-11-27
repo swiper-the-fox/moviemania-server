@@ -53,7 +53,7 @@ class UserController {
     const client = new OAuth2Client(process.env.CLIENT_ID);
     try {
       const ticket = await client.verifyIdToken({
-        idToken: req.body.token,
+        idToken: req.body.access_token,
         audience: process.env.CLIENT_ID, 
       });
       let payload = ticket.getPayload()
@@ -76,6 +76,7 @@ class UserController {
           res.status(200).json({access_token})
       }
     } catch (err) {
+      console.log(err);
       next(err)
     }
   }

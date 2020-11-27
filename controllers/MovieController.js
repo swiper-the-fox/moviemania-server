@@ -140,6 +140,7 @@ class MovieController {
       res.status(200).json(data)
     })
     .catch(err=>{
+      console.log('errnewsapi');
       next(err)
     })
   }
