@@ -1,0 +1,39 @@
+{
+  "name": "moviemania-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swiper-the-fox/moviemania-server.git"
+  },
+  "keywords": [
+    "moviemania"
+  ],
+  "author": "ichsan, taufiq, alfa, bima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swiper-the-fox/moviemania-server/issues"
+  },
+  "homepage": "https://github.com/swiper-the-fox/moviemania-server#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "google-auth-library": "^6.1.3",
+    "googleapis": "^65.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "newsapi": "^2.4.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "sequelize-cli": "^6.2.0"
+  }
+}
