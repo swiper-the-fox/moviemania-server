@@ -134,7 +134,7 @@ class MovieController {
 
   static getNewsapi(req,res,next){
     newsapi.v2.topHeadlines({
-      q: 'movies'
+      q: 'movie'
     })
     .then(data=>{
       res.status(200).json(data)
